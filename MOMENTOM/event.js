@@ -14,23 +14,52 @@ console.dir(title)
 // 사용자가 함수를 호출하는게 아닌 js가 실행하길 원하므로 ()을 생략
 
 // 1
-title.addEventListener("click",handleTitleClick)
+title.addEventListener("click",handleTitleClick);
+// event를 리슨할 수 있는 또다른 방법
+// title.onclick=handleTitleClick
 // 2
-title.addEventListener("mouseenter",handleMouseEnter)
+title.addEventListener("mouseenter",handleMouseEnter);
+// title.onmouseenter = handleMouseEnter
 // 3
-title.addEventListener("mouseleave",handleMouseELeave)
+title.addEventListener("mouseleave",handleMouseELeave);
+// title.onmouseleave = handleMouseELeave
 
 
 // 1
 function handleTitleClick(){
-    title.style.color = 'blue'
-    console.log("title was clicked")
+    title.style.color = 'blue';
+    console.log("title was clicked");
 }
 // 2
 function handleMouseEnter(){
-    this.innerText="Hello"
+    this.innerText="Hello";
 }
 // 3
 function handleMouseELeave(){
-    this.innerText="Mouse leave here"
+    this.innerText="Mouse leave here";
 }
+
+
+
+// window 를 이용해서 화면 자체 속성 변경시켜줄 수 있음
+
+function handleWindowResize(){
+    document.body.style.backgroundColor="tomato";
+    // body나 head 만 document로 직접 접근 가능 (나머지는 querySelector)
+}
+
+function handleWindowCopy(){
+    alert("copier")
+}
+function handleWindowOffline(){
+    alert("SoS no Wifi")
+}
+function handleWindowOnline(){
+    console.log("on Wifi")
+}
+
+// 화면의 크기가 변하면 백그라운드 색이 변환
+window.addEventListener("resize",handleWindowResize)
+window.addEventListener("copy",handleWindowCopy)
+window.addEventListener("offline",handleWindowOffline)
+window.addEventListener("online",handleWindowOnline)
