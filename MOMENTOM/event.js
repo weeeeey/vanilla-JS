@@ -10,10 +10,27 @@ console.dir(title)
 
 
 // 하지만 js 는 event(클릭 등등)을 리슨해야함
+// 가능한 이벤트들은 console.dir을 통해 on으로 시작하는것들을 검색하면됨
 // 사용자가 함수를 호출하는게 아닌 js가 실행하길 원하므로 ()을 생략
-title.addEventListener("click",handleTitleClick)
 
+// 1
+title.addEventListener("click",handleTitleClick)
+// 2
+title.addEventListener("mouseenter",handleMouseEnter)
+// 3
+title.addEventListener("mouseleave",handleMouseELeave)
+
+
+// 1
 function handleTitleClick(){
     title.style.color = 'blue'
     console.log("title was clicked")
+}
+// 2
+function handleMouseEnter(){
+    this.innerText="Hello"
+}
+// 3
+function handleMouseELeave(){
+    this.innerText="Mouse leave here"
 }
