@@ -3,6 +3,7 @@ const loginInput = loginForm.querySelector("input");
 // const loginInput = document.querySelector("#login-form input");
 const loginButton = loginForm.querySelector("button");
 
+const link = document.querySelector('a')
 function onLoginBtnClick(){
     const username = loginInput.value;
     console.log(username)
@@ -17,8 +18,16 @@ function onLoginBtnClick(){
 
 // 이벤트의 초기화(새로고침) 되는 것을 막아줌
 function onLoginSubmit(event){
+    
     event.preventDefault();
     console.log(event);
 }
-loginButton.addEventListener('click',onLoginBtnClick)
+
+function handleLinkClick(event){
+    alert("clicked!");
+    event.preventDefault(); //클릭 후 prevent를 해서 브라우저 기본 동작을 멈춤. 따라서 링크 이동 안하게 됨
+}
+loginButton.addEventListener('click',onLoginBtnClick);
 loginForm.addEventListener('submit',onLoginSubmit);
+
+link.addEventListener('click',handleLinkClick);
