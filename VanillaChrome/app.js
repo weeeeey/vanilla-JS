@@ -2,11 +2,11 @@ const loginForm = document.getElementById("login-form");
 const loginInput = loginForm.querySelector("input");
 // const loginInput = document.querySelector("#login-form input");
 const loginButton = loginForm.querySelector("button");
+const greeting = document.querySelector("#greeting")
+const HIDDEN_CLASSNAME = "hidden"
 
-const link = document.querySelector('a')
 function onLoginBtnClick(){
     const username = loginInput.value;
-    console.log(username)
 
     // if (username===''){
     //     alert("Please write your name.");
@@ -17,17 +17,15 @@ function onLoginBtnClick(){
 }
 
 // 이벤트의 초기화(새로고침) 되는 것을 막아줌
+// 여기에서 이벤트는 현재 submit 이므로 출력했을때 event는 SubmitEvent로 표기됨
+// 이벤트가 click이었으면 이벤트는 ClickEvent로 표기
 function onLoginSubmit(event){
-    
     event.preventDefault();
-    console.log(event);
+    const username = loginInput.value;
+    loginForm.classList.toggle(HIDDEN_CLASSNAME);
+    greeting.innerHTML=`Hello ${username}`
+    greeting.classList.toggle(HIDDEN_CLASSNAME)
 }
 
-function handleLinkClick(event){
-    alert("clicked!");
-    event.preventDefault(); //클릭 후 prevent를 해서 브라우저 기본 동작을 멈춤. 따라서 링크 이동 안하게 됨
-}
 loginButton.addEventListener('click',onLoginBtnClick);
 loginForm.addEventListener('submit',onLoginSubmit);
-
-link.addEventListener('click',handleLinkClick);
