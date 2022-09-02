@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeRome</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+
+    <!-- form으로 감싼뒤 버튼 클리거 or 입력 후 엔터를 누르면 자동으로 submit 이 되면서 새로구침됨 -->
+    <!-- 이것을 사용하면 js에서 따로 조건 안걸어도됨  -->
+    <!-- submit이 되면서 새로고침 되어서 모두 초기화됨 -->
+    <form id="login-form">
+        <input required=True maxlength="15" type="text" placeholder="What is your name?">
+        <!-- form으로 감싼 뒤 required를 추가해서 필수입력항목으로 만들어줌 -->
+        <button>Log In</button>
+    </form>
+</body>
+</html>
