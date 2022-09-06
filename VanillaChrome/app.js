@@ -6,16 +6,15 @@ const greeting = document.querySelector("#greeting")
 const HIDDEN_CLASSNAME = "hidden"
 const USERNAME_KEY = 'username';
 
-function onLoginBtnClick(){
-    const username = loginInput.value;
-
+// html require로 대체함
+// function onLoginBtnClick(){
+    // const username = loginInput.value;
     // if (username===''){
     //     alert("Please write your name.");
     // }else if (username.length>15){
     //     alert("Your name is too long.");
     // }
-
-}
+// }
 
 // 이벤트의 초기화(새로고침) 되는 것을 막아줌
 // 여기에서 이벤트는 현재 submit 이므로 출력했을때 event는 SubmitEvent로 표기됨
@@ -32,16 +31,17 @@ function paintGreetings(username){
     greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
-loginButton.addEventListener('click',onLoginBtnClick);
+// loginButton.addEventListener('click',onLoginBtnClick);
 
 // localStorage에 username 이 저장되어 있다면 h1을 보여주고
 // 그렇지 않을 경우 form 태그를 보여주는 것이 목표
+
 const savedUswername = localStorage.getItem(USERNAME_KEY);
-if (savedUswername==null){
+if (savedUswername===null){
     // Show form
     loginForm.classList.remove(HIDDEN_CLASSNAME);
     loginForm.addEventListener('submit',onLoginSubmit);
 }else{
     // show greeting
-    paintGreetings(loginInput.value);
+    paintGreetings(savedUswername);
 }
