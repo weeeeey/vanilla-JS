@@ -4,6 +4,7 @@ const loginInput = loginForm.querySelector("input");
 const loginButton = loginForm.querySelector("button");
 const greeting = document.querySelector("#greeting")
 const HIDDEN_CLASSNAME = "hidden"
+const USERNAME_KEY = 'username';
 
 function onLoginBtnClick(){
     const username = loginInput.value;
@@ -21,11 +22,26 @@ function onLoginBtnClick(){
 // 이벤트가 click이었으면 이벤트는 ClickEvent로 표기
 function onLoginSubmit(event){
     event.preventDefault();
+    loginForm.classList.add(HIDDEN_CLASSNAME);
     const username = loginInput.value;
-    loginForm.classList.toggle(HIDDEN_CLASSNAME);
-    greeting.innerHTML=`Hello ${username}`
-    greeting.classList.toggle(HIDDEN_CLASSNAME)
+    localStorage.setItem(USERNAME_KEY,username);
+    paintGreetings(username);
+}
+function paintGreetings(username){
+    greeting.innerHTML = `Hello ${username}`;
+    greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
 loginButton.addEventListener('click',onLoginBtnClick);
-loginForm.addEventListener('submit',onLoginSubmit);
+
+// localStorage에 username 이 저장되어 있다면 h1을 보여주고
+// 그렇지 않을 경우 form 태그를 보여주는 것이 목표
+const savedUswername = localStorage.getItem(USERNAME_KEY);
+if (savedUswername==null){
+    // Show form
+    loginForm.classList.remove(HIDDEN_CLASSNAME);
+    loginForm.addEventListener('submit',onLoginSubmit);
+}else{
+    // show greeting
+    paintGreetings(loginInput.value);
+}
