@@ -6,17 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeRome</title>
     <link rel="stylesheet" href="style.css">
-    <script src="clock.js" defer></script>
+    <script src="js/clock.js" defer></script>
+    <script src="js/greeting.js" defer></script>
+    <script src="js/quotes.js" defer></script>
+    <script src="js/background.js" defer></script>
 </head>
 <body>
+    
+    <h2 id="clock"></h2>
+    <h1 id="greeting" class="hidden"></h1>
     <form class="hidden" id="login-form">
         <input required maxlength="15" type="text" placeholder="What is your name?">
         <!-- form으로 감싼 뒤 required를 추가해서 필수입력항목으로 만들어줌 -->
         <button>Log In</button>
     </form>
-    <h1 id="greeting" class="hidden"></h1>
-    <h2 id="clock">00:00</h2>
-
+    <div id="quote">
+        <span></span>
+        <span></span>
+    </div>
     
 </body>
 </html>
