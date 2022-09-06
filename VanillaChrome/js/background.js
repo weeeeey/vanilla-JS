@@ -8,3 +8,5 @@ const bgImage = document.createElement("img");
 bgImage.src=`img/${chosenImage}`;
 
 document.body.appendChild(bgImage);
+// append 는 맨 뒤에 태그 추가
+// prepend 하면 맨 앞에 태그 추가
